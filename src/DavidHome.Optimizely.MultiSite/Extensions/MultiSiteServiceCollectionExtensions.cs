@@ -8,6 +8,9 @@ namespace Microsoft.Extensions.DependencyInjection;
 
 public static class MultiSiteServiceCollectionExtensions
 {
+    /// <summary>
+    /// Adds services required for multi-site routing.
+    /// </summary>
     public static IServiceCollection AddDavidHomeMultiSiteRouting(this IServiceCollection services)
     {
         services
