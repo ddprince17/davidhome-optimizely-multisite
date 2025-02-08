@@ -35,9 +35,18 @@ Backend developers are now able to create a completely separated C# library proj
 
 The following location pattern will be added to your site: 
 
-* 
+* /Views/{SiteName}/{PageType}/{0}.cshtml
+* /Views/{SiteName}/{0}.cshtml
+* /Views/{PageType}/{0}.cshtml
+* /Views/{SiteName}/Shared/{0}.cshtml
+* /Views/{SiteName}/Shared/Blocks/{0}.cshtml
+* /Views/Shared/Blocks/{0}.cshtml
 
 #### C# Library setup
+
+The name of the project has no importance for the library. Typically the suggested approach is to create a project and suffix it with the name of the site. Keeping the same previous example, "MyExampleSite", the name of the library could be something along: "MySuperOptimizelyCmsSite.MyExampleSite". 
+
+"MySuperOptimizelyCmsSite" would represent the starting assembly, where all configuration on the site would reside. Typically this is where your ``Startup.cs`` class will be.
 
 Make sure the node "Project" has the correct SDK: 
 ```xml
@@ -54,3 +63,23 @@ Add the following instructions in your .csproj file:
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
 </ItemGroup>
 ```
+
+With this project in place, you can literally place all business logic appropriate only for the site "MyExampleSite" inside it. This means: 
+
+* Block controllers.
+* Page controllers.
+* Razor views.
+* Any services specific to the website.
+* And more.
+
+Nothing related to your site "MyExampleSite" have to be in the base project "MySuperOptimizelyCmsSite". 
+
+## Limitations
+
+For the moment, the following things are not supported, but might be implemented in the future: 
+* Load a different page/block controller action based on the site currently being served. 
+    * This would allow a easier customization of behavior for shared content types.
+    * It's still possible to do so, but only on the razor view level. Not the best as I would not recommend to write business rules inside razor views.
+* Load a different service instance based on the site currently being served. 
+    * Would allow the utilization of the same service contract but with different concrete imlementations. 
+    * Would allow highly customizable services and usage in shared areas of the code.
