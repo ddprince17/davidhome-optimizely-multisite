@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FC5AE4BC-8161-40DF-A8F8-DF82A9FB9892}"
+	ProjectSection(SolutionItems) = preProject
+		src\Directory.Build.props = src\Directory.Build.props
+		src\Directory.Packages.props = src\Directory.Packages.props
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DavidHome.Optimizely.MultiSite", "src\DavidHome.Optimizely.MultiSite\DavidHome.Optimizely.MultiSite.csproj", "{8FE4E9F4-12BF-4496-B0CA-756B7E0E3338}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DavidHome.Optimizely.MultiSite.Ui", "src\DavidHome.Optimizely.MultiSite.Ui\DavidHome.Optimizely.MultiSite.Ui.csproj", "{330274BF-759F-4723-BC2D-07DECEF292E0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8FE4E9F4-12BF-4496-B0CA-756B7E0E3338}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FE4E9F4-12BF-4496-B0CA-756B7E0E3338}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FE4E9F4-12BF-4496-B0CA-756B7E0E3338}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FE4E9F4-12BF-4496-B0CA-756B7E0E3338}.Release|Any CPU.Build.0 = Release|Any CPU
+		{330274BF-759F-4723-BC2D-07DECEF292E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{330274BF-759F-4723-BC2D-07DECEF292E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{330274BF-759F-4723-BC2D-07DECEF292E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{330274BF-759F-4723-BC2D-07DECEF292E0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8FE4E9F4-12BF-4496-B0CA-756B7E0E3338} = {FC5AE4BC-8161-40DF-A8F8-DF82A9FB9892}
+		{330274BF-759F-4723-BC2D-07DECEF292E0} = {FC5AE4BC-8161-40DF-A8F8-DF82A9FB9892}
+	EndGlobalSection
+EndGlobal

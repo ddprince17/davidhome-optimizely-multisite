@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <Title>Optimizely Multi Site core library</Title>
+        <Description>Optimizely Multi Site core library.</Description>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="EPiServer.CMS.AspNetCore.Mvc" />
+    </ItemGroup>
+
+</Project>

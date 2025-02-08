@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <Title>Optimizely Multi Site UI extensions</Title>
+        <Description>Optimizely Multi Site UI extensions.</Description>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="EPiServer.CMS.UI.Core" />
+    </ItemGroup>
+
+</Project>
