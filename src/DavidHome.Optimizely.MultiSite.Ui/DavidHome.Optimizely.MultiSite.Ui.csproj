@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <Title>Optimizely Multi Site UI extensions</Title>
+        <Description>Optimizely Multi Site UI extensions.</Description>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="EPiServer.CMS.UI.Core" />
+      <PackageReference Include="GitVersion.MsBuild">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+    </ItemGroup>
+
+</Project>
