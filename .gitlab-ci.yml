@@ -17,13 +17,15 @@ deploy:
   artifacts:
     reports:
       dotenv: gitversion.properties
+  before_script:
+    - rm -rf $ARTIFACTS_LOCATION
   script:
     - dotnet tool install GitVersion.Tool -g
     - "export PATH=\"$PATH:/root/.dotnet/tools\""
     - dotnet-gitversion /output buildserver
     - dotnet restore --locked-mode --packages $NUPKG_LOCATION
     - dotnet pack --packages $NUPKG_LOCATION -o $ARTIFACTS_LOCATION -c Release
-    - dotnet nuget push "$ARTIFACTS_LOCATION/*$GitVersion_SemVer.nupkg" --api-key $NUGET_ORG_API_KEY --source https://api.nuget.org/v3/index.json
+    - dotnet nuget push "$ARTIFACTS_LOCATION/*.nupkg" --api-key $NUGET_ORG_API_KEY --source https://api.nuget.org/v3/index.json
   environment: production
 
 release_job:
