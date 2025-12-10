@@ -17,13 +17,13 @@ public static class WebHostingEnvironmentExtensions
 
             if (physicalFileProvider != null)
             {
-                webHostEnvironment.WebRootFileProvider = new CompositeFileProvider(compositeFileProvider.FileProviders.Concat([new MultiSiteAssetsFileProvider(physicalFileProvider)]));
+                webHostEnvironment.WebRootFileProvider = new CompositeFileProvider(compositeFileProvider.FileProviders.Prepend(new MultiSiteAssetsFileProvider(physicalFileProvider)));
 
                 return webHostEnvironment;
             }
         }
 
-        webHostEnvironment.WebRootFileProvider = new CompositeFileProvider(webRootFileProvider, new MultiSiteAssetsFileProvider(webRootFileProvider));
+        webHostEnvironment.WebRootFileProvider = new CompositeFileProvider(new MultiSiteAssetsFileProvider(webRootFileProvider), webRootFileProvider);
 
         return webHostEnvironment;
     }
