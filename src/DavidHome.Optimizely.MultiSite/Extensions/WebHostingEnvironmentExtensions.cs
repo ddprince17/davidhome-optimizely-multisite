@@ -23,7 +23,7 @@ public static class WebHostingEnvironmentExtensions
             }
         }
 
-        webHostEnvironment.WebRootFileProvider = new CompositeFileProvider(webRootFileProvider, new MultiSiteAssetsFileProvider(webRootFileProvider));
+        webHostEnvironment.WebRootFileProvider = new CompositeFileProvider(new MultiSiteAssetsFileProvider(webRootFileProvider), webRootFileProvider);
 
         return webHostEnvironment;
     }
