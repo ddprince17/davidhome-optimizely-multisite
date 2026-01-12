@@ -1,0 +1,4 @@
+# Changelog
+
+## 1.1.2
+- Updated `.gitlab-ci.yml` to run releases through the GitLab CLI (`glab`), authenticating with the CI job token and using the local `CHANGELOG` file as the release body when creating version tags.
