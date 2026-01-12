@@ -13,6 +13,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DavidHome.Optimizely.MultiS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DavidHome.Optimizely.MultiSite.Ui", "src\DavidHome.Optimizely.MultiSite.Ui\DavidHome.Optimizely.MultiSite.Ui.csproj", "{330274BF-759F-4723-BC2D-07DECEF292E0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "root", "root", "{26CC160C-F847-4811-8EF3-A6549779DBF3}"
+	ProjectSection(SolutionItems) = preProject
+		CHANGELOG = CHANGELOG
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
