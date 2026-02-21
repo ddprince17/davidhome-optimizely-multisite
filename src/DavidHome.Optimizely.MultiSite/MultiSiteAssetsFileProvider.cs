@@ -1,4 +1,6 @@
-﻿using EPiServer.Web;
+﻿using EPiServer.Applications;
+using EPiServer.ServiceLocation;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Primitives;
 
@@ -34,13 +36,14 @@ public class MultiSiteAssetsFileProvider : IFileProvider
     public IChangeToken Watch(string filter)
     {
         var siteFilter = GetSitePath(filter);
-        
+
         return siteFilter != null ? _fileProvider.Watch(siteFilter) : NullChangeToken.Singleton;
     }
-    
-    private static string? GetSitePath(string subPath)
+
+    private string? GetSitePath(string subPath)
     {
-        var siteName = SiteDefinition.Current?.Name;
+        var applicationResolver = ServiceLocator.Current.GetRequiredService<IApplicationResolver>();
+        var siteName = applicationResolver.GetByContext()?.Name;
 
         return !string.IsNullOrEmpty(siteName) ? $"/{siteName.ToLowerInvariant()}{subPath}" : null;
     }

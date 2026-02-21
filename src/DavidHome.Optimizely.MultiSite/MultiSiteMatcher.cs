@@ -1,4 +1,5 @@
 ﻿using EPiServer;
+using EPiServer.Applications;
 using EPiServer.Core;
 using EPiServer.Web;
 using EPiServer.Web.Routing.Matching;
@@ -27,20 +28,20 @@ public class MultiSiteMatcher : MatcherPolicy, IEndpointSelectorPolicy
     public Task ApplyAsync(HttpContext httpContext, CandidateSet candidates)
     {
         var contentRouteFeature = httpContext.Features.Get<IContentRouteFeature>();
-        var siteDefinition = contentRouteFeature?.RoutedContentData?.MatchedHost?.Site;
+        var matchedApplication = contentRouteFeature?.RoutedContentData?.MatchedApplication;
         var routedContent = contentRouteFeature?.RoutedContentData?.Content;
 
-        SetSiteNameRouteValue(httpContext, siteDefinition);
+        SetSiteNameRouteValue(httpContext, matchedApplication);
         SetTypeNameRouteValue(httpContext, routedContent);
 
         return Task.CompletedTask;
     }
 
-    private static void SetSiteNameRouteValue(HttpContext httpContext, SiteDefinition? siteDefinition)
+    private static void SetSiteNameRouteValue(HttpContext httpContext, Application? application)
     {
-        if (siteDefinition != null && !SiteDefinition.Empty.Equals(siteDefinition))
+        if (application != null)
         {
-            httpContext.Request.RouteValues[SiteNameRouteKey] = siteDefinition.Name;
+            httpContext.Request.RouteValues[SiteNameRouteKey] = application.Name;
         }
     }
 

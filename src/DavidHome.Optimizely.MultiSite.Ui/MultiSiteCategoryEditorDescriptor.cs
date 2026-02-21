@@ -1,4 +1,5 @@
-﻿using EPiServer.Core;
+﻿using EPiServer.Applications;
+using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.Shell.ObjectEditing;
 using EPiServer.Shell.ObjectEditing.EditorDescriptors;
@@ -16,13 +17,13 @@ public class MultiSiteCategoryEditorDescriptor : EditorDescriptor
     public const string UiHint = "MultiSiteCategorySelector";
     
     private readonly CategoryRepository _categoryRepository;
-    private readonly ISiteDefinitionResolver _siteDefinitionResolver;
+    private readonly IApplicationResolver _applicationResolver;
     private readonly IRequestHostResolver _requestHostResolver;
 
-    public MultiSiteCategoryEditorDescriptor(CategoryRepository categoryRepository, ISiteDefinitionResolver siteDefinitionResolver, IRequestHostResolver requestHostResolver)
+    public MultiSiteCategoryEditorDescriptor(CategoryRepository categoryRepository, IApplicationResolver applicationResolver, IRequestHostResolver requestHostResolver)
     {
         _categoryRepository = categoryRepository;
-        _siteDefinitionResolver = siteDefinitionResolver;
+        _applicationResolver = applicationResolver;
         _requestHostResolver = requestHostResolver;
     }
 
@@ -30,15 +31,15 @@ public class MultiSiteCategoryEditorDescriptor : EditorDescriptor
     {
         base.ModifyMetadata(metadata, attributes);
 
-        var siteDefinition = _siteDefinitionResolver.GetByHostname(_requestHostResolver.HostName, false);
+        var hostResolution = _applicationResolver.GetByHostname(_requestHostResolver.HostName, false);
         var categoryRoot = _categoryRepository.GetRoot();
-
-        if (siteDefinition?.Name != null)
+        
+        if (hostResolution.Application?.Name != null)
         {
             var foundCategory = categoryRoot
                 .GetList()
                 .Cast<Category>()
-                .FirstOrDefault(category => siteDefinition.Name.Equals(category.Name, StringComparison.OrdinalIgnoreCase));
+                .FirstOrDefault(category => hostResolution.Application.Name.Equals(category.Name, StringComparison.OrdinalIgnoreCase));
 
             if (foundCategory != null)
             {
