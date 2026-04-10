@@ -4,8 +4,8 @@
     <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="EPiServer.CMS.AspNetCore.Mvc" Version="[13.0.0-preview2,13.0.0)" />
-    <PackageVersion Include="EPiServer.CMS.UI.Core" Version="[13.0.0-preview2,13.0.0)" />
+    <PackageVersion Include="EPiServer.CMS.AspNetCore.Mvc" Version="[13.0.0,14.0.0)" />
+    <PackageVersion Include="EPiServer.CMS.UI.Core" Version="[13.0.0,14.0.0)" />
     <PackageVersion Include="GitVersion.MsBuild" Version="6.5.1" />
   </ItemGroup>
 </Project>

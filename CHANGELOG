@@ -1,3 +1,6 @@
-- Added .NET 10 as a supported target alongside .NET 8 and bumped C# language version to 14.
-- Refreshed package baselines, including GitVersion.MsBuild and centralized versions for common security-sensitive dependencies.
-- Adjusted centralized package management to avoid the SixLabors.ImageSharp conflict, updating locks.
+## Version 2.0.0
+
+- Upgraded package compatibility from Optimizely CMS 12.x to Optimizely CMS 13.x.
+- Reworked CMS integration points to use CMS 13 application APIs instead of site-definition APIs for route matching, static asset resolution, and category editor scoping.
+- Dropped `net8.0` multi-targeting; the packages now target `net10.0` only.
+- Refreshed NuGet lock files to align with the CMS 13 dependency graph and removed the explicit transitive security package pins carried in v1.

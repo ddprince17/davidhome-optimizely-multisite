@@ -1,7 +1,6 @@
 ﻿using EPiServer;
 using EPiServer.Applications;
 using EPiServer.Core;
-using EPiServer.Web;
 using EPiServer.Web.Routing.Matching;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
